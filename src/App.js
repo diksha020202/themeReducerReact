@@ -1,22 +1,28 @@
-import logo from './logo.svg';
+import { ThemeContext } from './ThemeContext/ThemeContextProvider';
 import './App.css';
+import { useContext } from 'react';
+import Button from './Button/Button';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
+
+
 
 function App() {
+  const [theme, toggleTheme] = useContext(ThemeContext);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Navbar/>
+      <hr />
+      <hr />
+      <Button style={{height:"400px", width:"600px"}} onClick={toggleTheme}  text="THEME" />
+      <br />
+      
+      <button onClick={toggleTheme}  >TOGGLE</button>
+<hr />
+<hr />
+<Footer/>
+        
       </header>
     </div>
   );
